@@ -2,6 +2,7 @@
 #include <fstream>
 #include <vector>
 #include <windows.h>
+#include "Geometry.h"
 using std::cout;
 
 //the function that renders the scene
@@ -15,7 +16,7 @@ void render() {
 
 	std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
 	
-	for (int j = 0; j < image_height-1; ++j) {
+	for (int j = 0; j < image_height; ++j) {
 
 		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush; //progress indicator
 
