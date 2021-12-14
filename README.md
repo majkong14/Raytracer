@@ -1,7 +1,7 @@
 # Raytracer
 Trying to make a simple raytracer from the ground-up. Inspired by the Ray Tracing in One Weekend by Peter Shirley
 The initial requirements list features:
-1. Ability to output an image (so-called "Hello world" for the graphics)
+1. Ability to output an image (so-called "Hello world" for the graphics) #complete
 2. Be able to operate with simple primitives (triangles, spheres)
 3. Feature a simple camera (including futher extensions for positioning and/or varying focus depth)
 4. Feature antialiasing (to fight Mach transitions, rough edges, and so on)
