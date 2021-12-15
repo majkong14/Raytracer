@@ -9,9 +9,9 @@ using std::cout;
 void render() {
 	//Image dimensions
 	//avoid defining global constants
-	const int image_width = 1024; 
+	const int image_width = 1024;
 	const int image_height = 768;
-	
+
 	std::vector<Vec3f> framebuffer(image_width * image_height); //creating a framebuffer using std::vector from STL
 
 	//Render cycle - writing to the framebuffer
@@ -24,7 +24,7 @@ void render() {
 	}
 
 	//create and open the file to save the image
-	std::ofstream ofs; 
+	std::ofstream ofs;
 	ofs.open("./output.ppm");
 	ofs << "P6\n" << image_width << " " << image_height << "\n255\n";
 
@@ -32,7 +32,7 @@ void render() {
 
 	//Writing image to the file
 	for (size_t i = 0; i < image_height * image_width; ++i) {			//here "i" is a joint index to traverse the image buffer like 2D array
-		for (size_t j = 0; j < 3; j++) {								// "j" is a counter that separates the 3-vector triplets
+		for (size_t j = 0; j < 3; j++) {					// "j" is a counter that separates the 3-vector triplets
 			ofs << (char)(255 * max(0.f, min(1.f, framebuffer[i][j])));
 		}
 	}
