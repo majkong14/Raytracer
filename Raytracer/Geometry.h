@@ -7,16 +7,16 @@
 
 //template for the structure of an N-dimensional vector
 template <size_t DIM> struct vec {
-	float data[DIM] = {};																//an array of coordinates
+	float data[DIM] = {};								//an array of coordinates
 	
-	float& operator[] (const size_t i) { assert(i < DIM); return data[i]; }			//overloaded indexation operator
+	float& operator[] (const size_t i) { assert(i < DIM); return data[i]; }		//overloaded indexation operator
 	const float& operator[] (const size_t i) { assert(i < DIM); return data[i]; }	//same operator, but const
 };
 
 //template for the vector scaling
 template <size_t DIM> vec<DIM> operator*(const vec<DIM>& left, const float right) {
 	vec <DIM> result;
-	for (size_t i = 0; i < DIM; ++i) { result[i] = left[i] * right; };			//multiplying coords by a scalar
+	for (size_t i = 0; i < DIM; ++i) { result[i] = left[i] * right; };		//multiplying coords by a scalar
 	return result;
 }
 
@@ -51,7 +51,7 @@ template <> struct vec<3> {
 
 	float norm() { return std::sqrt(x * x + y * y + z * z); }	//defining a norm of a 3-vector
 
-	vec<3>& normalize(float one = 1.f) {						//vector normalization
+	vec<3>& normalize(float one = 1.f) {				//vector normalization
 		*this = (*this) * (one / norm());
 		return *this;
 	}
