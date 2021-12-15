@@ -32,7 +32,7 @@ void render() {
 
 	//Writing image to the file
 	for (size_t i = 0; i < image_height * image_width; ++i) {			//here "i" is a joint index to traverse the image buffer like 2D array
-		for (size_t j = 0; j < 3; j++) {								// "j" is a counter that separates the 3-vector triplets
+		for (size_t j = 0; j < 3; j++) {					// "j" is a counter that separates the 3-vector triplets
 			ofs << (char)(255 * max(0.f, min(1.f, framebuffer[i][j])));
 		}
 	}
