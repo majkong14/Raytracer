@@ -12,26 +12,31 @@ void render() {
 	const int image_width = 1024; 
 	const int image_height = 768;
 	
-	//Render
+	std::vector<Vec3f> framebuffer(image_width * image_height); //creating a framebuffer using std::vector from STL
 
-	std::cout << "P3\n" << image_width << ' ' << image_height << "\n255\n";
-	
+	//Render cycle - writing to the framebuffer
 	for (int j = 0; j < image_height; ++j) {
-
 		std::cerr << "\rScanlines remaining: " << j << ' ' << std::flush; //progress indicator
 
 		for (int i = 0; i < image_width; ++i) {
-			auto r = double(i) / (image_width - 1);
-			auto g = double(j) / (image_height - 1);
-			auto b = 0.25;
-
-			int ir = static_cast<int>(255.999 *r);
-			int ig = static_cast<int>(255.999 *g);
-			int ib = static_cast<int>(255.999 *b);
-
-			std::cout << ir << ' ' << ig << ' ' << ib << '\n'; 
+			framebuffer[i + j * image_width] = Vec3f(j / float(image_height), i / float(image_width), 0.25);
 		}
 	}
+
+	//create and open the file to save the image
+	std::ofstream ofs; 
+	ofs.open("./output.ppm");
+	ofs << "P6\n" << image_width << " " << image_height << "\n255\n";
+
+	std::cerr << "\nSaving...\n";
+
+	//Writing image to the file
+	for (size_t i = 0; i < image_height * image_width; ++i) {			//here "i" is a joint index to traverse the image buffer like 2D array
+		for (size_t j = 0; j < 3; j++) {								// "j" is a counter that separates the 3-vector triplets
+			ofs << (char)(255 * max(0.f, min(1.f, framebuffer[i][j])));
+		}
+	}
+	ofs.close();
 
 	std::cerr << "\nDone.\n";
 }
