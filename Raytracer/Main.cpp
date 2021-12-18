@@ -6,6 +6,7 @@
 #include <vector>
 #include "geometry.h"
 
+//We can feed the object into the raytracer - a sphere
 struct Sphere {
     Vec3f center;
     float radius;
@@ -26,6 +27,7 @@ struct Sphere {
     }
 };
 
+//Casting the ray into the scene
 Vec3f cast_ray(const Vec3f& orig, const Vec3f& dir, const Sphere& sphere) {
     float sphere_dist = std::numeric_limits<float>::max();
     if (!sphere.ray_intersect(orig, dir, sphere_dist)) {
@@ -56,7 +58,7 @@ void render(const Sphere& sphere) {
     std::cerr << "\nSaving...\n";
 
     std::ofstream ofs; // Save the framebuffer to file
-    ofs.open("./out.ppm");
+    ofs.open("./output.ppm");
     ofs << "P6\n" << width << " " << height << "\n255\n";
     for (size_t i = 0; i < height * width; ++i) {                                     //Here "i" is a joint index to traverse the image buffer like 2D array
         for (size_t j = 0; j < 3; j++) {                                              // "j" is a counter that separates the 3-vector triplets
