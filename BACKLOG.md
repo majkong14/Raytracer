@@ -14,7 +14,14 @@ the striped gradient of gray for all the other rows (possible change in framebuf
 of the row-major).
 [Image_1]()
 
+#Step 2 completed
 12.18.2021 - main.cpp, and geometry.h updated - added new rendering cycle (paralellized using OMP), ray tracing function, can 
 put objects into the scene, new onjects - sphere. 
 See first raytraced sphere here:
 [Image_2]()
+
+#Step 5 completed
+main.cpp updated - added materials, modified Sphere structure, scene_intersect() function added (iteratively check whether 
+spheres from the array must be shaded or not), cast_ray() function updated, an array (stack) of spheres added.
+See several spheres on the scene here:
+[Image 3]()
