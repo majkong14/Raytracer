@@ -8,3 +8,13 @@ See first image here:
 Implemented using the structures, but not classes because there's no need to complicate the code as of now. At this stage, 
 templates provide enough flexibility. Namely, just two lines introducing vec3 and vec4 via name mangling (typedef) allow 
 not to rewrite same code twice for vec3 and vec4 respectively.
+
+12.16.2021 - Main.cpp updated, broke the .ppm color code, rendering cycle outputs the rainbow-gradient in a row followed by
+the striped gradient of gray for all the other rows (possible change in framebuffer filling order - column-major one instead 
+of the row-major).
+[Image_1]()
+
+12.18.2021 - main.cpp, and geometry.h updated - added new rendering cycle (paralellized using OMP), ray tracing function, can 
+put objects into the scene, new onjects - sphere. 
+See first raytraced sphere here:
+[Image_2]()
