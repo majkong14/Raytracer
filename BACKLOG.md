@@ -23,4 +23,4 @@ See first raytraced sphere here:
 main.cpp updated - added materials, modified Sphere structure, scene_intersect() function added (iteratively check whether 
 spheres from the array must be shaded or not), cast_ray() function updated, an array (stack) of spheres added.
 See several spheres on the scene here:
-[Image 3](https://github.com/majkong14/Raytracer/blob/main/Images/Image_3.jpeg)
+[Image_3](https://github.com/majkong14/Raytracer/blob/main/Images/Image_3.jpeg)
