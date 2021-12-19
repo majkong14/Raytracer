@@ -28,6 +28,7 @@ Further improvement might include some code optimization and refactoring efforts
   multiplication, addition, substraction, putting division at the very end (to avoid 
   multiple divisions while performing a calculation). Albeit requiring some manual formula
   expansions (rendering the code more verbose) this might result int some increased time and
-  space efficiency.
+  space efficiency. Don't forget - we use struct's instead of objects, so you may also consider 
+  playing around with bit fields, as C++ allows it.
   
 Feel free to fork and implement your suggestions
