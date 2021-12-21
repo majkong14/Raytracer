@@ -24,3 +24,8 @@ main.cpp updated - added materials, modified Sphere structure, scene_intersect()
 spheres from the array must be shaded or not), cast_ray() function updated, an array (stack) of spheres added.
 See several spheres on the scene here:
 [Image_3](https://github.com/majkong14/Raytracer/blob/main/Images/Image_3.jpeg)
+
+12.19.2021 - added lights structure (diffuse_lighting), scene_intersect(), cast_ray() modified, an array (stack) of lights 
+added. Now it is possible to position lights => simple shadows are present.
+See several spheres with simple shadows (diffuse_lightning):
+[Image_4]()
