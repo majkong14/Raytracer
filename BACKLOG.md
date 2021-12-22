@@ -38,3 +38,17 @@ See the image featuring Phong reflections here:
 added shadows - cast_ray() function updated.
 See the image with shadows:
 [Image_5](https://github.com/majkong14/Raytracer/blob/main/Images/Image_5.jpeg)
+
+12.22.2021 - added reflections and reflective materials, updated reflect() and cast_ray() functions, Material strucutre also updated.
+The image with reflections here:
+[Image_6](https://github.com/majkong14/Raytracer/blob/main/Images/Image_6.jpeg)
+
+Added refractions - updated cast_ray() and added the refract() function (Snellius law for light refraction), updated the Material.
+Now the image with refractions:
+[Image_7](https://github.com/majkong14/Raytracer/blob/main/Images/Image_7.jpeg)
+
+Added a board with the checkered skin - updated scene_intersect() (code analogous to the one needed for the sphere) + added a condition
+for drawing the checkered skin on the plane in the scene_intersect(). Board (a plane, in essence), is given by an explicit equation 
+(namely y = -4), so no structure to define the plane is needed.
+The image with the plane on it:
+[Image_8](https://github.com/majkong14/Raytracer/blob/main/Images/Image_8.jpeg)
