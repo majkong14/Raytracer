@@ -27,5 +27,14 @@ See several spheres on the scene here:
 
 12.19.2021 - added lights structure (diffuse_lighting), scene_intersect(), cast_ray() modified, an array (stack) of lights 
 added. Now it is possible to position lights => simple shadows are present.
-See several spheres with simple shadows (diffuse_lightning):
-[Image_4]()
+
+12.21.2021 - added phong reflections (added specular component to the diffuse lighting), updated Material struct, added 
+reflect() function, updated scene_intersect() function. New changes in the rendering loop: added a color 3-vector "&c" to 
+contain the clamped values of the color of a pixel ("clamp" prevents the pixel from being brighter than the maximum allowed
+brightness). 
+See the image featuring Phong reflections here:
+[Image_4](https://github.com/majkong14/Raytracer/blob/main/Images/Image_4.jpeg)
+
+added shadows - cast_ray() function updated.
+See the image with shadows:
+[Image_5](https://github.com/majkong14/Raytracer/blob/main/Images/Image_5.jpeg)
