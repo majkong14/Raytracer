@@ -71,7 +71,20 @@ bool scene_intersect(const Vec3f& orig, const Vec3f& dir, const std::vector<Sphe
             material = spheres[i].material;
         }
     }
-    return spheres_dist < 1000;
+    float board_dist = std::numeric_limits<float>::max();
+    if (fabs(dir.y) > 1e-3) {
+        float d = (orig.y - 4) / dir.y; //plane equation: y = -4
+        Vec3f pt = orig + dir * d;
+        if (d > 0 && fabs(pt.x) < 10 && pt.z<-10 && pt.z>-30 && d < spheres_dist) {
+            board_dist = d;
+            hit = pt;
+            N = Vec3f(0, 1, 0); //normal vector to the y = -4 (already normalized)
+            material.diffuse_color = (int(5 * hit.x + 1000) + int(5 * hit.z)) & 1 ? Vec3f(1, 1, 1) : Vec3f(1, .7, .3); //making the board look checkered - drawing the squares
+            material.diffuse_color = material.diffuse_color * 3;
+        }
+    }
+
+    return std::min(spheres_dist, board_dist) < 1000;
 }
 Vec3f cast_ray(const Vec3f& orig, const Vec3f& dir, const std::vector<Sphere>& spheres, const std::vector<Light>& lights, size_t  depth=0) {
     Vec3f point, N;
